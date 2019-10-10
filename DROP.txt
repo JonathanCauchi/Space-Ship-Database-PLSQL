@@ -1,0 +1,62 @@
+/***********************************************/
+/*******    DROP      ***     V1.7      ********/
+/***********************************************/
+/***********************************************/
+/*******    Drop Views
+/***********************************************/
+DROP VIEW crew_location_view;
+DROP VIEW restricted_crew_view;
+DROP VIEW beaminglog_view;
+/***********************************************/
+/*******    Drop Indexes
+/***********************************************/
+DROP INDEX INDEX_CREW_STATION_ID;
+DROP INDEX INDEX_STATION_NAME;
+DROP INDEX INDEX_LOCATION_NAME;
+DROP INDEX INDEX_BEAMING_CREW_ID;
+/***********************************************/
+/*******    Drop Triggers
+/***********************************************/
+DROP TRIGGER check_authority_level;
+DROP TRIGGER check_timestamp;
+DROP TRIGGER check_dob;
+/***********************************************/
+/*******    Drop Procedures
+/***********************************************/
+DROP PROCEDURE Beam_Crew;
+DROP PROCEDURE Change_Rank;
+DROP PROCEDURE Ship_Attack;
+/***********************************************/
+/*******    Drop Functions
+/***********************************************/
+DROP FUNCTION authority_level_diff;
+DROP FUNCTION station_health;
+DROP FUNCTION ship_health;
+DROP FUNCTION age_retrieval;
+DROP FUNCTION Distance_Between_SS;
+DROP FUNCTION get_location;
+/***********************************************/
+/*******    Drop Sequences
+/***********************************************/
+DROP SEQUENCE beaming_seq;
+DROP SEQUENCE location_seq;
+DROP SEQUENCE captainlog_seq;
+DROP SEQUENCE crew_seq;
+DROP SEQUENCE rank_seq;
+DROP SEQUENCE subsystems_seq;
+DROP SEQUENCE station_seq;
+DROP SEQUENCE starsystem_seq;
+DROP SEQUENCE maintenancelog_seq;
+/***********************************************/
+/*******    Drop Tables
+/***********************************************/
+DROP TABLE MAINTENANCELOG CASCADE CONSTRAINTS;
+DROP TABLE BEAMING CASCADE CONSTRAINTS;
+DROP TABLE LOCATION CASCADE CONSTRAINTS;
+DROP TABLE CAPTAINLOG CASCADE CONSTRAINTS;
+DROP TABLE CREW CASCADE CONSTRAINTS;
+DROP TABLE RANK CASCADE CONSTRAINTS;
+DROP TABLE SUBSYSTEMS CASCADE CONSTRAINTS;
+DROP TABLE STATION CASCADE CONSTRAINTS;
+DROP TABLE STARSYSTEM CASCADE CONSTRAINTS;
+

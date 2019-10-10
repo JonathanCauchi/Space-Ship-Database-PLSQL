@@ -1,0 +1,107 @@
+/***********************************************/
+/*******    ACCESS CONTROL    V1.7      ********/
+/***********************************************/
+
+/* Create Roles */
+CREATE ROLE shipcaptain;
+CREATE ROLE beamoperator;
+CREATE ROLE personnelmgr;
+CREATE ROLE technicalofficer;
+
+
+/* shipcaptain permissions */
+GRANT SELECT ON restricted_crew_location TO shipcaptain;
+GRANT SELECT ON crew_location_view TO shipcaptain;
+GRANT SELECT ON beaminglog_view TO shipcaptain;
+
+GRANT SELECT, INSERT, UPDATE, DELETE ON BEAMING TO shipcaptain;
+GRANT SELECT, INSERT, UPDATE, DELETE ON LOCATION TO shipcaptain;
+GRANT SELECT, INSERT, UPDATE, DELETE ON CAPTAINLOG TO shipcaptain;
+GRANT SELECT, INSERT, UPDATE, DELETE ON CREW TO shipcaptain;
+GRANT SELECT, INSERT, UPDATE, DELETE ON RANK TO shipcaptain;
+GRANT SELECT, INSERT, UPDATE, DELETE ON SUBSYSTEMS TO shipcaptain;
+GRANT SELECT, INSERT, UPDATE, DELETE ON STATION TO shipcaptain;
+GRANT SELECT, INSERT, UPDATE, DELETE ON STARSYSTEM TO shipcaptain;
+GRANT SELECT, INSERT, UPDATE, DELETE ON MAINTENANCELOG TO shipcaptain;
+
+GRANT EXECUTE ON Beam_Crew  TO shipcaptain;
+GRANT EXECUTE ON change_rank  TO shipcaptain;
+GRANT EXECUTE ON ship_attack  TO shipcaptain;
+GRANT EXECUTE ON get_location  TO shipcaptain;
+GRANT EXECUTE ON age_retrieval  TO shipcaptain;
+GRANT EXECUTE ON Distance_Between_SS TO shipcaptain;
+GRANT EXECUTE ON change_rank  TO shipcaptain;
+GRANT EXECUTE ON Ship_Health  TO shipcaptain;
+GRANT EXECUTE ON Station_health  TO shipcaptain; 
+GRANT EXECUTE ON authority_level_diff  TO shipcaptain;
+
+GRANT USAGE ON starsystem_seq TO shipcaptain;
+GRANT USAGE ON station_seq TO shipcaptain;
+GRANT USAGE ON subsystems_seq TO shipcaptain;
+GRANT USAGE ON rank_seq TO shipcaptain;
+GRANT USAGE ON crew_seq TO shipcaptain;
+GRANT USAGE ON captainlog_seq TO shipcaptain;
+GRANT USAGE ON location_seq TO shipcaptain;
+GRANT USAGE ON beaming_seq TO shipcaptain;
+GRANT USAGE ON maintenancelog_seq TO shipcaptain;
+
+
+/* beamoperator permissions */
+GRANT SELECT ON restricted_crew_view TO beamoperator;
+GRANT SELECT ON crew_location_view TO beamoperator;
+GRANT SELECT ON beaminglog_view TO beamoperator;
+GRANT SELECT ON STATION TO beamoperator;
+GRANT SELECT ON SUBSYSTEMS TO beamoperator;
+GRANT SELECT, INSERT, UPDATE, DELETE ON BEAMING TO beamoperator;
+GRANT SELECT, INSERT, UPDATE, DELETE ON LOCATION TO beamoperator;
+GRANT SELECT, INSERT, UPDATE, DELETE ON STARSYSTEM TO beamoperator;
+GRANT SELECT, INSERT, UPDATE, DELETE ON MAINTENANCELOG TO beamoperator;
+
+GRANT EXECUTE ON Beam_Crew  TO beamoperator;
+GRANT EXECUTE ON Distance_Between_SS TO beamoperator;
+GRANT EXECUTE ON get_location  TO beamoperator;
+
+GRANT USAGE ON starsystem_seq TO beamoperator;
+GRANT USAGE ON location_seq TO beamoperator;
+GRANT USAGE ON beaming_seq TO beamoperator;
+GRANT USAGE ON maintenancelog_seq TO beamoperator;
+
+
+/* personnelmgr permissions */
+GRANT SELECT ON restricted_crew_view TO beamoperator;
+GRANT SELECT ON crew_location_view TO beamoperator;
+GRANT SELECT ON beaminglog_view TO beamoperator;
+GRANT SELECT, INSERT, UPDATE, DELETE ON CREW TO personnelmgr;
+GRANT SELECT, INSERT, UPDATE, DELETE ON RANK TO personnelmgr;
+GRANT SELECT, INSERT, UPDATE, DELETE ON MAINTENANCELOG TO personnelmgr;
+GRANT SELECT ON BEAMING TO personnelmgr;
+GRANT SELECT ON LOCATION TO personnelmgr;
+GRANT SELECT ON STARSYSTEM TO personnelmgr;
+
+GRANT EXECUTE ON age_retrieval  TO personnelmgr;
+GRANT EXECUTE ON get_location  TO personnelmgr;
+GRANT EXECUTE ON change_rank  TO personnelmgr;
+
+GRANT USAGE ON rank_seq TO personnelmgr;
+GRANT USAGE ON crew_seq TO personnelmgr;
+GRANT USAGE ON maintenancelog_seq TO personnelmgr;
+
+
+/* technicalofficer permissions */
+GRANT SELECT ON restricted_crew_view TO technicalofficer;
+GRANT SELECT ON STATION TO technicalofficer;
+GRANT SELECT, INSERT, UPDATE, DELETE ON SUBSYSTEMS TO technicalofficer;
+GRANT SELECT, INSERT, UPDATE, DELETE ON LOCATIONS TO technicalofficer;
+GRANT SELECT, INSERT, UPDATE, DELETE ON STARSYSTEM TO technicalofficer;
+GRANT SELECT, INSERT, UPDATE, DELETE ON MAINTENANCELOG TO technicalofficer;
+
+GRANT EXECUTE ON Station_health  TO technicalofficer; 
+GRANT EXECUTE ON Ship_Health  TO technicalofficer; 
+GRANT EXECUTE ON Distance_Between_SS TO technicalofficer;
+GRANT EXECUTE ON get_location  TO technicalofficer;
+GRANT EXECUTE ON ship_attack  TO technicalofficer;
+
+GRANT USAGE ON starsystem_seq TO technicalofficer;
+GRANT USAGE ON subsystems_seq TO technicalofficer;
+GRANT USAGE ON location_seq TO technicalofficer;
+GRANT USAGE ON maintenancelog_seq TO technicalofficer;
